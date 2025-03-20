@@ -4,7 +4,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hola, Docker pipeline funcionando 🚀, se hace CI automático?'
+    msg = f'Hola, Docker pipeline funcionando 🚀, se hace CI automático?'
+    new_info = f'Automatic testing deployment'
+    return msg + new_info
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
