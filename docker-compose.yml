@@ -1,0 +1,17 @@
+services:
+  test-app:
+    image: juan0100/test-app:latest
+    container_name: test-pipeline
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true  # Borra las imágenes antiguas
+      - WATCHTOWER_POLL_INTERVAL=30  # Verifica cada 30 segundos
+    restart: unless-stopped
