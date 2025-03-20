@@ -1,0 +1,12 @@
+database.sqlite*
+
+*.pem
+*.json
+*.log
+
+nginx/
+
+*.sqlite*
+*.pem
+*.json
+*.log

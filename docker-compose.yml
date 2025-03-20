@@ -1,4 +1,16 @@
 services:
+  nginxproxymanager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginxproxymanager
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+
   test-app:
     image: juan0100/test-app:latest
     container_name: test-pipeline
@@ -12,6 +24,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - WATCHTOWER_CLEANUP=true  # Borra las imágenes antiguas
-      - WATCHTOWER_POLL_INTERVAL=30  # Verifica cada 30 segundos
+      - WATCHTOWER_CLEANUP=true 
+      - WATCHTOWER_POLL_INTERVAL=30
     restart: unless-stopped
