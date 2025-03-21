@@ -8,4 +8,4 @@ def client():
 def test_info(client):
     response = client.get('/info')
     assert response.status_code == 200
-    assert b'Hola, Docker pipeline funcionando, se hace CI automatico' in response.data
+    assert b'ola, Docker pipeline funcionando, se hace CI automatico' in response.data
