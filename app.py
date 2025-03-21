@@ -10,7 +10,7 @@ def hello():
 
 @app.route('/info')
 def info():
-    msg = f'Hola, Docker pipeline funcionando 🚀, se hace CI automático'
+    msg = f'Hola, Docker pipeline funcionando, se hace CI automatico'
     return msg
     
 
